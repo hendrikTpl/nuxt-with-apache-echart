@@ -18,12 +18,20 @@ export default defineNuxtConfig({
 
   modules: [],
   ssr: true,
+  css: [
+    'vuetify/lib/styles/main.sass',
+    '@mdi/font/css/materialdesignicons.min.css',
+  ],
   plugins: [],
 
   build: {
     transpile: ['vuetify', 'echarts', 'zrender', 'tslib'],
   },
-
+  vite: {
+    define: {
+      'process.env.DEBUG': false,
+    },
+  },
   devServer: {
     host: '0.0.0.0',
     port: 3010,

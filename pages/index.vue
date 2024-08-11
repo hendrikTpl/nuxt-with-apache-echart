@@ -1,9 +1,17 @@
 <template>
-  <div>
-    <client-only>
-      <VChart class="chart" :option="option" />
-    </client-only>
-  </div>
+    <v-row>
+        <v-col cols="3" xs="12" md="6" lg="3">
+        </v-col>
+        <v-col cols="3" xs="12" md="6" lg="3">
+        </v-col>
+        <v-col cols="3" xs="12" md="6" lg="3"> 
+            <div>
+                <client-only>
+                    <VChart class="chart" :option="option" />
+                </client-only>
+            </div>
+        </v-col>
+    </v-row> 
 </template>
 
 <script lang="ts" setup>
@@ -18,6 +26,17 @@ import { use } from 'echarts/core'
 import { CanvasRenderer } from 'echarts/renderers'
 import { ref } from 'vue'
 import VChart from 'vue-echarts'
+
+//layout settings
+definePageMeta({
+  layout: "default",
+});
+
+useHead({
+  title: "HT | Nuxt3 Tutorial",
+  meta: [{ name: "description", content: "Home" }],
+});
+
 use([
   CanvasRenderer,
   PieChart,
