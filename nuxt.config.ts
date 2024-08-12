@@ -15,7 +15,17 @@ export default defineNuxtConfig({
       ],
     },
   },
-
+  modules: [
+    "nuxt-echarts",
+  ],
+  ssr: true,
+  echarts: {
+    // Options https://echarts.nuxt.dev/getting-started/configuration
+    renderer: ['svg', 'canvas'],
+    charts: ['BarChart', 'LineChart', 'PieChart', 'GaugeChart'],
+    components: ['DatasetComponent', 'GridComponent', 'TooltipComponent', 'ToolboxComponent'],
+    features: ['LabelLayout', 'UniversalTransition'],
+  },
   css: [
     'vuetify/lib/styles/main.sass',
     "@mdi/font/css/materialdesignicons.css",
