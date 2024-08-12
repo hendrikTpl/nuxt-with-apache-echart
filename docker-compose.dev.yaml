@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  ui:
+    build:
+      context: ./
+      dockerfile: Dockerfile.dev
+    ports:
+      - 3010:3000
+      # - 24678:24678
+    restart: always
+    volumes:
+      # mount the source for development
+      - ./:/app
+    command: sh -c "rm -f /tmp/nitro/* && npm install && npm run dev"

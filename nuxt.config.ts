@@ -1,4 +1,5 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
+
 export default defineNuxtConfig({
   app: {
     head: {
@@ -6,42 +7,35 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en'
       },
-
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { hid: 'description', name: 'description', content: '' },
+        { hid: 'description', name: 'description', content: 'Nuxt 3 tutorial using ECharts and Vuetify' },
         { name: 'format-detection', content: 'telephone=no' }
       ],
     },
   },
 
-  modules: [],
-  ssr: true,
   css: [
     'vuetify/lib/styles/main.sass',
-    '@mdi/font/css/materialdesignicons.min.css',
+    "@mdi/font/css/materialdesignicons.css",
   ],
-  plugins: [],
-
   build: {
-    transpile: ['vuetify', 'echarts', 'zrender', 'tslib'],
+    transpile: ['vuetify']
   },
-  vite: {
-    define: {
-      'process.env.DEBUG': false,
-    },
-  },
+  // devtools: { 
+  //   enabled: true, 
+  //   // enabled: process.env.NODE_ENV === 'development'
+  // },
   devServer: {
     host: '0.0.0.0',
     port: 3010,
   },
-
   runtimeConfig: {
     public: {
       API_BASE_URL: process.env.API_BASE_URL
     },
   },
+  compatibilityDate: '2024-04-03',
 
-  compatibilityDate: '2024-08-11'
 })
